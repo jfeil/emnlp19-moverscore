@@ -64,7 +64,7 @@ def bert_encode(model, x, attention_mask):
     model.eval()
     with torch.no_grad():
         result = model(x, attention_mask = attention_mask)
-    if model_name == 'distilbert-base-uncased':
+    if model_name.startswith('distilbert-base'):
         return result[1] 
     else:
         return result[2] 
